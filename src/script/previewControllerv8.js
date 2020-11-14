@@ -10,8 +10,11 @@ var previewController = (function(addQCtrl) {
 
         var html;
 
+        document.querySelector('.survey__list').insertAdjacentHTML('afterbegin', '<option class="survey__name" value="survey__name">None selected</option>');
+
         for (var i = 0; i < allSurveyTitles.length; i++) {
 
+            // Update the dropdown
             html = `
                 <option class="survey__name" value="survey__name">%surveyname%</option>
             `;
@@ -19,6 +22,15 @@ var previewController = (function(addQCtrl) {
             html = html.replace('%surveyname%', allSurveyTitles[i]);
 
             document.querySelector('.survey__list').insertAdjacentHTML('beforeend', html);
+
+            // Ovo iskoristi za f-ju kad se klikne na value iz dropdowna a dodaj sada na vrh none
+            // Update surveyTitle and surveyDescription
+            // Title already here
+            document.querySelector('.survey__title__prev').innerHTML = allSurveyTitles[i];
+
+            // Get surveyDescription and update HTML
+            var result = readData(allSurveyTitles[i]);
+            document.querySelector('.survey__description__prev').innerHTML = result.dataDescription;
 
         }
 
