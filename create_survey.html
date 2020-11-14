@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,600" rel="stylesheet" type="text/css">
+        <link type="text/css" rel="stylesheet" href="src/css/stylev1.css">
+        <title>Survey Creator</title>
+    </head>
+    <body>
+        <div class="survey__heading">
+            <h2>Create a new survey</h2>
+        </div>
+        <div class="top">
+            <div class="survey__wrapper col-6 col-s-6">
+                <div class="survey__logo">
+                    <img src="src/img/list.png" alrt="Survey illustration" width="60%">
+                </div>
+                <div class="survey__wrapper">
+                    <div class="survey col-3 col-s-3">
+                        <input type="text" class="survey__title" placeholder="Survey title">
+                    </div>
+                    <div class="survey col-3 col-s-3">
+                        <textarea class="survey__description" name="survey__description" rows="3" cols="70" placeholder="Add survey description ..."></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="add">
+                <div class="add__container">
+                    <label for="add__question">Create new question</label>
+                    <input type="text" class="add__question" name="add__question" placeholder="Question text ...">
+                        <select class="question__type" name="question_type" id="question_type">
+                            <option class="free__text" value="free_text">Free text</option>
+                            <option class="multiple__choice" value="multiple_choice">Multiple choice</option>
+                            <option class="single__choice" value="single__choice">Single choice</option>
+                        </select>
+                    <button class="add__btn" id="add__btn">Add question</button>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="bottom">
+                <div class="container clearfix col-6 col-s-9">
+                    <div class="questions__list"></div>
+                    <div class="submit__form">
+                        <button class="submit__btn" id="submit__btn" style="display: none;">Submit Survey</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <h1>Some text here</h1>
+        </div>
+
+        <script src="src/script/questionController.js"></script>
+        <script src="src/script/uiController.js"></script>
+        <script src="src/script/mainv4.js"></script>
+    </body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,600" rel="stylesheet" type="text/css">
+        <link type="text/css" rel="stylesheet" href="src/css/stylev1.css">
+        <title>Survey Creator</title>
+    </head>
+    <body>
+        <div class="survey__heading">
+            <h2>Create a new survey</h2>
+        </div>
+        <div class="top">
+            <div class="survey__wrapper col-6 col-s-6">
+                <div class="survey__logo">
+                    <img src="src/img/list.png" alrt="Survey illustration" width="60%">
+                </div>
+                <div class="survey__wrapper">
+                    <div class="survey col-3 col-s-3">
+                        <p class="survey__title__prev">%surveytitle%</p>
+                    </div>
+                    <div class="survey col-3 col-s-3">
+                        <div class="survey__description__prev">%surveydescription%</div>
+                    </div>
+                </div>
+            </div>
+            <div class="add">
+                <div class="add__container">
+                    <label for="survey__list">Saved surveys:</label>
+                        <select class="survey__list" name="survey__list" id="survey__list">
+                        
+                        </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="bottom">
+                <div class="container clearfix col-6 col-s-9">
+                    <div class="questions__list">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <h1>Some text here</h1>
+        </div>
+
+        <script src="src/script/questionController.js"></script>
+        <script src="src/script/previewControllerv8.js"></script>
+    </body>
+</html>

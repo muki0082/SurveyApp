@@ -1,0 +1,333 @@
+/*** Responsive and global css ***/
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+html {
+    font-family: "Lucida Sans", sans-serif;
+}
+
+body {
+    color: #555;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Mobile phones: */
+[class*="col-"] {
+    width: 100%;
+}
+
+/* For tablets: */
+@media only screen and (min-width: 600px) {
+    .col-s-1 {width: 8.33%;}
+    .col-s-2 {width: 16.66%;}
+    .col-s-3 {width: 25%;}
+    .col-s-4 {width: 33.33%;}
+    .col-s-5 {width: 41.66%;}
+    .col-s-6 {width: 50%;}
+    .col-s-7 {width: 58.33%;}
+    .col-s-8 {width: 66.66%;}
+    .col-s-9 {width: 75%;}
+    .col-s-10 {width: 83.33%;}
+    .col-s-11 {width: 91.66%;}
+    .col-s-12 {width: 100%;}
+}
+
+/* For desktop: */
+@media only screen and (min-width: 768px) {
+    .col-1 {width: 8.33%;}
+    .col-2 {width: 16.66%;}
+    .col-3 {width: 25%;}
+    .col-4 {width: 33.33%;}
+    .col-5 {width: 41.66%;}
+    .col-6 {width: 50%;}
+    .col-7 {width: 58.33%;}
+    .col-8 {width: 66.66%;}
+    .col-9 {width: 75%;}
+    .col-10 {width: 83.33%;}
+    .col-11 {width: 91.66%;}
+    .col-12 {width: 100%;}
+}
+
+[class*="col-"] {
+    /*float: left;*/
+    padding: 15px;
+    /*border: 1px solid red;*/
+}
+
+/* ----------------------------------------- */
+
+
+/*** index.html ***/
+
+.welcome__picture, .welcome {
+    float: left;
+}
+
+.welcome__container {
+    margin: 20%;
+}
+
+.welcome h1 {
+    color: #2a9df4;
+    margin: 0 0 20px 0;
+}
+
+.welcome p {
+    margin: 0 0 40px 0;
+}
+
+.welcome__line {
+    margin: 0 auto;
+}
+
+.welcome__line1 {
+    border-bottom: 10px solid #2a9df4;
+    width: 20%;
+    float: left;
+}
+
+.welcome__line2 {
+    border-bottom: 10px solid #ff69b4;
+    width: 20%;
+    float: left;
+}
+.welcome__line3 {
+    border-bottom: 10px solid #5bc236;
+    width: 20%;
+    float: left;
+}
+
+.dots {
+    margin: 0 auto;
+    width: 100%;
+    float: left;
+}
+
+.dots__wrapper {
+    width: 25%;
+    display: block;
+    margin: auto;
+}
+
+.square, .square__active {
+    height: 15px;
+    width: 15px;
+    background-color: #d8e9f3;
+    float: left;
+    margin-right: 10px;
+}
+
+.square__active {
+    height: 20px;
+    width: 20px;
+    padding: 5px;
+    background-color: #2a9df4;
+}
+
+.welcome__picture img {
+    display: block;
+    margin: auto;
+}
+
+/* ----------------------------------------- */
+
+
+/*** Create survey page general style ***/
+
+.survey__wrapper {
+    margin: 0 auto;
+}
+
+.survey__wrapper:after, survey:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.survey {
+    float: left;
+    width: 75%;
+    padding: 10px;
+}
+
+.survey__logo {
+    float: left;
+    width: 25%;
+    padding: 10px;
+}
+
+.survey__home {
+    margin: 70px 0 70px 0;
+    float: left;
+    width: 100%;
+}
+
+.survey__home__wrapper {
+    text-align: center;
+}
+
+.container {
+    margin: 0 auto;
+} 
+
+
+/** Add question, questions styles, submit **/
+
+.add {
+    padding: 14px;
+    border-bottom: 1px solid #e7e7e7;
+    background-color: #f8f8f8;
+}
+
+.add__container {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.add__question, .question__type, .survey__list, .survey__title, .free__text__field, .answer, .survey__description {
+    border: 1px solid #e7e7e7;
+    background-color: #fff;
+    color: inherit;
+    font-family: inherit;
+    font-size: 14px;
+    padding: 12px 15px;
+    margin: 0 10px 0 10px;
+    border-radius: 20px;
+    transition: border 0.3s;
+}
+
+.add__btn, .submit__btn, .add__answer, .btn__done {
+    font-size: 14px;
+    background-color: #2a9df4;
+    border: 1px solid #e7e7e7;
+    color: #fff;
+    cursor: pointer;
+    vertical-align: middle;
+    line-height: 1.6;
+    padding: 12px 15px;
+    border-radius: 20px;
+    transition: border 0.3s;
+    margin-left: 10px;
+    transition: 0.2s;
+}
+
+.survey__title, .survey__description {
+    margin-left: 0;
+}
+
+.answer, .submit__btn {
+    opacity: 0;
+    animation: mymove 0.8s;
+}
+
+.free__text__field {
+    margin-top: 10px;
+}
+
+[class*="question__div"], .submit__btn {
+    opacity: 0;
+    animation: mymove 0.8s;
+}
+
+.submit__btn, .add__answer, .btn__done {
+    margin: 10px 25px 10px 0;
+}
+
+.add__question:focus, .question__type:focus, .survey__list:focus, .survey__title:focus, .free__text__field:focus, .answer:focus, 
+.survey__description:focus {
+    outline: none;
+    border: 1px solid #2a9df4;
+}
+
+.add__btn:hover, .submit__btn:hover, .add__answer:hover, .btn__done:hover {
+    background-color: #fff;
+    color: #2a9df4;
+    transition: 0.5s;
+
+}
+
+.add__btn:focus, .submit__btn:focus, .add__answer:focus, .btn__done:focus {
+    outline: none;
+}
+
+.choice__buttons {
+    margin-left: 10%;
+}
+
+.question__id {
+    margin: 10px 0 10px 0;
+}
+
+.answers {
+    list-style: none;
+    padding: 0;
+}
+
+.answers li {
+    margin: 10px 0 0 0 ;
+}
+
+.submit__form {
+    margin-top: 40px;
+}
+
+.submit__btn {
+    margin: 0 auto;
+    font-weight: 600;
+}
+
+.bottom {
+    margin-bottom: 20px;
+}
+
+.question__text {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+/* ----------------------------------------- */
+
+
+/** Animate questions appearance **/
+.animate {
+    opacity: 1 !important;
+} 
+
+@keyframes mymove {
+    100% {opacity: 1;}
+   
+}
+
+/* ----------------------------------------- */
+
+
+/** Heading and footer **/
+
+.survey__heading, .footer {
+    background-color: #2a9df4;
+    color: #ffffff;
+    padding: 15px;
+}
+
+.footer {
+    font-size: 10px;
+    height: 50px;
+}
+
+.content {
+    min-height: calc(100vh - 392px); 
+    background-image: url("../img/desk.png");
+}
+
+/* ----------------------------------------- */
