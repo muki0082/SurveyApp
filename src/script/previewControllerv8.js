@@ -6,34 +6,31 @@ var previewController = (function(addQCtrl) {
     var allSurveyTitles = getAllCookies();
     console.log(allSurveyTitles);
 
-    if (allSurveyTitles) {
+    // If any surveys saved/created
+    if (allSurveyTitles.length > 0) {
 
         var html;
 
+        // Add 'None selected' value to the top of the dropDown
         document.querySelector('.survey__list').insertAdjacentHTML('afterbegin', '<option class="survey__name" value="survey__name">None selected</option>');
 
         for (var i = 0; i < allSurveyTitles.length; i++) {
 
             // Update the dropdown
             html = `
-                <option class="survey__name" value="survey__name">%surveyname%</option>
+                <option class="survey__name` + i + `" value="survey__name">%surveyname%</option>
             `;
 
             html = html.replace('%surveyname%', allSurveyTitles[i]);
 
             document.querySelector('.survey__list').insertAdjacentHTML('beforeend', html);
 
-            // Ovo iskoristi za f-ju kad se klikne na value iz dropdowna a dodaj sada na vrh none
-            // Update surveyTitle and surveyDescription
-            // Title already here
-            document.querySelector('.survey__title__prev').innerHTML = allSurveyTitles[i];
-
-            // Get surveyDescription and update HTML
-            var result = readData(allSurveyTitles[i]);
-            document.querySelector('.survey__description__prev').innerHTML = result.dataDescription;
+            // Add eventListener to every value in the dropDown, to get the selected survey title
+            document.querySelector('.survey__name' + i).addEventListener('click', getTitle);
 
         }
 
+    // If no surveys saved/created
     } else {
 
         html = `
@@ -70,13 +67,38 @@ var previewController = (function(addQCtrl) {
        
     }
 
-    // Read survey date from one cookie, by name
+    // Read survey data from one cookie, by name
     function readData(name) {
 
         var result = document.cookie.match(new RegExp(name + '=([^;]+)'));
         result && (result = JSON.parse(result[1]));
         
         return result;
+
+    }
+
+    // Get selected survey title on click from the dropDown
+    function getTitle() {
+
+        var e = document.getElementById('survey__list');
+        var value = e.options[e.selectedIndex].value;
+        var surveyName = e.options[e.selectedIndex].text;
+
+        console.log(surveyName);
+
+    }
+
+    // Popilate survey based on title
+    function populateSurvey(surveyTitle) {
+
+        // Ovo iskoristi za f-ju kad se klikne na value iz dropdowna a dodaj sada na vrh none
+        // Update surveyTitle and surveyDescription
+        // Title already here
+        document.querySelector('.survey__title__prev').innerHTML = allSurveyTitles[i];
+
+        // Get surveyDescription and update HTML
+        var result = readData(allSurveyTitles[i]);
+        document.querySelector('.survey__description__prev').innerHTML = result.dataDescription;
 
     }
        
