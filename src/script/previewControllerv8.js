@@ -1,6 +1,7 @@
 
 /*** Preview Controller ***/
-var previewController = (function(addQCtrl) {
+//var previewController = (function(UICtrl) {
+var previewController = (function(prevUICtrl) {
 
     // Get all survey titles
     var allSurveyTitles = getAllCookies();
@@ -84,25 +85,34 @@ var previewController = (function(addQCtrl) {
         var value = e.options[e.selectedIndex].value;
         var surveyName = e.options[e.selectedIndex].text;
 
-        console.log(surveyName);
+        //console.log(surveyName);
+
+        populateSurvey(surveyName);
 
     }
 
     // Popilate survey based on title
-    function populateSurvey(surveyTitle) {
+    //function populateSurvey(surveyTitle) {
+    var populateSurvey = function(surveyTitle) {
 
-        // Ovo iskoristi za f-ju kad se klikne na value iz dropdowna a dodaj sada na vrh none
-        // Update surveyTitle and surveyDescription
-        // Title already here
-        document.querySelector('.survey__title__prev').innerHTML = allSurveyTitles[i];
+        //IN PROGRESS :: Call a function to get all data for one survey, based on it's title - and populate HTML
+        console.log(surveyTitle);
+        
+        //Get all data for one survey, based on the title
+        var surveyData = readData(surveyTitle);
+        //console.log(surveyData);
 
-        // Get surveyDescription and update HTML
-        var result = readData(allSurveyTitles[i]);
-        document.querySelector('.survey__description__prev').innerHTML = result.dataDescription;
+        // NOT WORKING - setTitle on 25th line can't be used here so causing an error, when commented out it's without errors but still not populating HTML
+        //TO BE IMPROVED: calling a separate controller to populate HTML at this point - should update UIController to use the same function
+        //UICtrl.addListItem(surveyData);
+        //prevUICtrl.test();
+
+        prevUICtrl.previewSurvey(surveyData);
 
     }
-       
-})(addQuestionsController);
+
+//})(UIController);
+})(previewUIController);
 
 // Init function???
 //previewController.init();
